@@ -18,14 +18,17 @@ Due to GitHub's file size limits, the large data files (**CSV** and **FAISS** ve
 
 ### 🚀 How to Run Locally
 
-**1. Clone this repository** 
+**Clone this repository** 
 git clone [https://github.com/nathAlv08/anime_recommendation_model.git](https://github.com/nathAlv08/anime_recommendation_model.git) 
 cd anime_recommendation_model 
 
-## Download the Dataset Download the files from the Kaggle link above and place them in the root directory of this project. Ensure you have these two files:
+## Download the Dataset Download the files from the Kaggle link above and place them in the root directory of this project. Ensure you have these file:
 
 anime_ultimate_cross_validated.csv
-anime_vector.faiss
+
+## Generate FAISS Vector File (Important!)
+Because the FAISS file is too large to host, you need to build it locally. Run the following script (this may take 10-15 minutes depending on your CPU):
+python generate_vector.py
 
 ## Install Dependencies
 
@@ -48,21 +51,33 @@ Payload Example (**JSON**):
 }
 **POST** /update-database : Triggers a background task to fetch the latest airing anime from Jikan **API**, converts them into vectors, and updates the **FAISS** index automatically.
 
-🇮🇩 Versi Indonesia 📖 Deskripsi Singkat Repositori ini berisi kode backend untuk **API** Rekomendasi Anime berbasis AI. Dibangun menggunakan FastAPI, sistem ini menggunakan Sentence-Transformers (Pencarian Semantik) dan **FAISS** untuk menemukan anime dengan alur cerita, genre, dan tema yang mirip secara instan melalui perbandingan jarak vektor.
+## <a id=*versi-indonesia*></a> 🇮🇩 Versi Indonesia 
 
-🗄️ Di Mana Dataset-nya? Karena adanya batasan ukuran file di GitHub, file data berukuran besar (**CSV** dan Vektor **FAISS**) tidak disertakan di dalam repositori ini. Kamu wajib mengunduhnya dari Kaggle untuk bisa menjalankan **API** ini: 👉 Download Dataset Anime di Kaggle
+### 📖 Deskripsi Singkat 
 
-🚀 Cara Menjalankan di Komputer Lokal ## Clone Repositori Ini
+Repositori ini berisi kode backend untuk **API** Rekomendasi Anime berbasis AI. Dibangun menggunakan FastAPI, sistem ini menggunakan Sentence-Transformers (Pencarian Semantik) dan **FAISS** untuk menemukan anime dengan alur cerita, genre, dan tema yang mirip secara instan melalui perbandingan jarak vektor.
+
+### 🗄️ Di Mana Dataset-nya? 
+
+Karena adanya batasan ukuran file di GitHub, file data berukuran besar (**CSV** dan Vektor **FAISS**) tidak disertakan di dalam repositori ini. Kamu wajib mengunduhnya dari Kaggle untuk bisa menjalankan **API** ini: 👉 Download Dataset Anime di Kaggle
+
+### 🚀 Cara Menjalankan di Komputer Lokal 
+
+**Clone Repositori Ini**
 
 git clone [https://github.com/nathAlv08/anime_recommendation_model.git](https://github.com/nathAlv08/anime_recommendation_model.git) 
 cd anime_recommendation_model 
 
-## Unduh Dataset Unduh file dari tautan Kaggle di atas, lalu letakkan di dalam folder utama project ini. Pastikan ada dua file ini:
+**Unduh Dataset Unduh file dari tautan Kaggle di atas, lalu letakkan di dalam folder utama project ini. Pastikan ada file ini**
 
 anime_ultimate_cross_validated.csv
-anime_vector.faiss
 
-## Install Library yang Dibutuhkan
+**Buat File Vektor FAISS (Wajib!)**
+Karena file FAISS tidak disediakan, kamu harus membangunnya sendiri. Jalankan perintah ini (prosesnya butuh sekitar 10-15 menit tergantung kecepatan CPU):
+
+python generate_vector.py
+
+**Install Library yang Dibutuhkan**
 
 Pastikan Python 3.10+ sudah terinstal di komputermu.
 
