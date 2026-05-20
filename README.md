@@ -2,7 +2,6 @@
 
 [![Kaggle Dataset](https://img.shields.io/badge/Kaggle-Dataset-blue?style=for-the-badge&logo=kaggle)](https://[www.kaggle.com/datasets/nathanfam/anime-datasets-updated-apr-**2026**](https://www.kaggle.com/datasets/nathanfam/anime-datasets-updated-apr-**2026**)) [![FastAPI](https://img.shields.io/badge/FastAPI-**005571**?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
 
-🌍 **Choose Language:** [English](#english-version) | [Bahasa Indonesia](#versi-indonesia)
 
 ---
 
@@ -50,53 +49,5 @@ Payload Example (**JSON**):
     *top_k*: 10
 }
 **POST** /update-database : Triggers a background task to fetch the latest airing anime from Jikan **API**, converts them into vectors, and updates the **FAISS** index automatically.
-
-## <a id=*versi-indonesia*></a> 🇮🇩 Versi Indonesia 
-
-### 📖 Deskripsi Singkat 
-
-Repositori ini berisi kode backend untuk **API** Rekomendasi Anime berbasis AI. Dibangun menggunakan FastAPI, sistem ini menggunakan Sentence-Transformers (Pencarian Semantik) dan **FAISS** untuk menemukan anime dengan alur cerita, genre, dan tema yang mirip secara instan melalui perbandingan jarak vektor.
-
-### 🗄️ Di Mana Dataset-nya? 
-
-Karena adanya batasan ukuran file di GitHub, file data berukuran besar (**CSV** dan Vektor **FAISS**) tidak disertakan di dalam repositori ini. Kamu wajib mengunduhnya dari Kaggle untuk bisa menjalankan **API** ini: 👉 Download Dataset Anime di Kaggle
-
-### 🚀 Cara Menjalankan di Komputer Lokal 
-
-**Clone Repositori Ini**
-
-git clone [https://github.com/nathAlv08/anime_recommendation_model.git](https://github.com/nathAlv08/anime_recommendation_model.git) 
-cd anime_recommendation_model 
-
-**Unduh Dataset Unduh file dari tautan Kaggle di atas, lalu letakkan di dalam folder utama project ini. Pastikan ada file ini**
-
-anime_ultimate_cross_validated.csv
-
-**Buat File Vektor FAISS (Wajib!)**
-Karena file FAISS tidak disediakan, kamu harus membangunnya sendiri. Jalankan perintah ini (prosesnya butuh sekitar 10-15 menit tergantung kecepatan CPU):
-
-python generate_vector.py
-
-**Install Library yang Dibutuhkan**
-
-Pastikan Python 3.10+ sudah terinstal di komputermu.
-
-pip install -r requirements.txt ## Nyalakan Server
-
-uvicorn app:app --host 0.0.0.0 --port **7860** **API** akan berjalan di [http://localhost:**7860**](http://localhost:**7860**)
-
-📡 Endpoints Utama **GET** / : Pengecekan status untuk memastikan server menyala.
-
-**POST** /recommend : Jalur utama untuk meminta rekomendasi anime.
-
-Contoh Payload (**JSON**):
-
-**JSON**
-{
-    *title*: *Naruto*,
-    *synopsis*: *Seorang anak ninja yang ingin menjadi Hokage...*,
-    *top_k*: 10
-}
-**POST** /update-database : Menjalankan tugas di latar belakang (background task) untuk mengambil data anime terbaru dari Jikan **API**, mengubahnya menjadi vektor, dan memperbarui memori **FAISS** secara otomatis.
 
 Built with 🔥 by Nathan  `
